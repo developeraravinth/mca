@@ -1,0 +1,90 @@
+/*** TREE VIEW ***/
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.swing.*;
+import javax.swing.tree.*;
+
+/*<applet code = "TreeView_Applet" width = 400 height = 500></applet>*/
+
+public class TreeView_Applet extends JApplet{
+
+	DefaultMutableTreeNode course;
+	DefaultMutableTreeNode pg;
+	DefaultMutableTreeNode ug;
+	DefaultMutableTreeNode dip;
+	DefaultMutableTreeNode pg1, pg2, pg3;
+	DefaultMutableTreeNode pg31, pg32, pg33;
+	DefaultMutableTreeNode ug1, ug2, ug3;
+	DefaultMutableTreeNode dip1, dip2, dip3;
+	JTextField jtf;
+	JTree jtree;
+	
+	public void init(){
+	
+	Container con = getContentPane();
+	con.setLayout(new BorderLayout());	
+	jtf = new JTextField(40);			
+	course = new DefaultMutableTreeNode ("Courses");		
+	pg = new DefaultMutableTreeNode ("Post Graduate Courses");
+	ug = new DefaultMutableTreeNode ("Under Graduate Courses");
+	dip= new DefaultMutableTreeNode ("Diploma Courses");
+	pg1 = new DefaultMutableTreeNode ("M.C.A");
+	pg2 = new DefaultMutableTreeNode ("M.B.A");
+	pg3 = new DefaultMutableTreeNode ("M.Sc");
+	pg31 = new DefaultMutableTreeNode ("M.Sc(IT)");
+	pg32 = new DefaultMutableTreeNode ("M.Sc(CS)");
+	pg33 = new DefaultMutableTreeNode ("M.Sc(Maths)");
+
+	ug1 = new DefaultMutableTreeNode ("B.C.A");
+	ug2 = new DefaultMutableTreeNode ("B.B.A");
+	ug3 = new DefaultMutableTreeNode ("B.Sc");
+
+	dip1 =  new DefaultMutableTreeNode ("P.G.D.C.A");
+	dip2 =  new DefaultMutableTreeNode ("P.G.D.F.T");
+	dip3 =  new DefaultMutableTreeNode ("P.G.D.I.D");
+
+	pg.add(pg1);
+	pg.add(pg2);
+	pg.add(pg3);
+
+	pg1.add(pg31);
+	pg2.add(pg32);
+	pg3.add(pg33);
+
+	ug.add(ug1);
+	ug.add(ug2);
+	ug.add(ug3);
+
+	dip.add(dip1);
+	dip.add(dip2);
+	dip.add(dip3);
+
+	course.add(pg);
+	course.add(ug);
+	course.add(dip);
+
+	jtree = new JTree(course);
+	int vscroll = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
+	int hscroll = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS;
+	JScrollPane jsp = new JScrollPane(jtree, vscroll, hscroll);
+	con.add(jsp, BorderLayout.CENTER);
+	con.add(jtf, BorderLayout.SOUTH);
+		jtree.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent me){
+			TreePath tp = jtree.getSelectionPath();
+			if(tp!=null)
+			jtf.setText(" " + tp);
+			else
+			jtf.setText(" ");
+			}
+		});
+
+
+	}
+
+
+
+
+}
