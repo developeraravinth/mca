@@ -1,0 +1,64 @@
+/*** Write a java program to perform various events in Mouse ***/
+import java.io.*;
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+/*<applet code = "Mouse.class" width = 300 height = 300></applet>*/
+public class Mouse extends Applet implements MouseListener, MouseMotionListener{
+
+String txt = "II MCA Students";
+int x = 10, y = 30;
+
+	public void init(){
+	addMouseListener(this);
+	addMouseMotionListener(this);
+	}
+
+	public void mouseClicked(MouseEvent me){
+	txt = "Mouse Clicked";
+	setForeground(Color.pink);
+	repaint();
+	}
+
+	public void mouseEntered(MouseEvent me){
+	txt = "Mouse Entered";
+	repaint();
+	}
+
+	public void mouseExited(MouseEvent me){
+	txt = "Mouse Exited";
+	setForeground(Color.blue);
+	repaint();
+	}
+
+	public void mousePressed(MouseEvent me){
+	txt = "Mouse Pressed";
+	setForeground(Color.blue);
+	repaint();
+	}
+
+	public void mouseMoved(MouseEvent me){
+	txt = "Mouse Moved";
+	setForeground(Color.red);
+	repaint();
+	}
+
+	public void mouseDragged(MouseEvent me){
+	txt = "Mouse Dragged";
+	setForeground(Color.green);
+	repaint();
+	}
+
+	public void mouseReleased(MouseEvent me){
+	txt = "Mouse Released";
+	setForeground(Color.yellow);
+	repaint();
+	}
+
+	public void paint(Graphics g){
+	g.drawString(txt, 30, 40);
+	showStatus("Mouse Events Handling");
+	}
+
+}
