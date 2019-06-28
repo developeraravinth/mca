@@ -1,0 +1,34 @@
+/*** Write a Java program to prepare EmployerPaysliployer Payslip ***/
+import java.io.*;
+public class EmployerPayslip{
+
+	static void EmployerPayslip(String name, String addr, String mail){
+	System.out.println("\n\n\nEmployerPaysliployee Name: " + name);
+	System.out.println("EmployerPaysliployee Address: " + addr);
+	System.out.println("EmployerPaysliployee E-Mail: " + mail);
+	}
+
+	static void EmployerPayslip(int no, int sal){
+	System.out.println("EmployerPaysliployee No: " + no);
+	System.out.println("EmployerPaysliployee Salary: " + sal);
+	}
+
+	public static void main(String[] args) throws IOException{
+	DataInputStream in = new DataInputStream(System.in);
+	System.out.println("Enter EmployerPaysliployee Name: ");
+	String name = in.readLine();
+	System.out.println("Enter EmployerPaysliployee No: ");
+	int no = Integer.parseInt(in.readLine());
+	System.out.println("Enter EmployerPaysliployee Address: ");
+	String addr = in.readLine();
+	System.out.println("Enter EmployerPaysliployee Mail: ");
+	String mail = in.readLine();
+	System.out.println("Enter EmployerPaysliployee Salary: ");
+	int salary= Integer.parseInt(in.readLine());	
+
+	EmployerPayslip(name, addr, mail);
+	EmployerPayslip(no, salary);
+	}
+
+
+}
