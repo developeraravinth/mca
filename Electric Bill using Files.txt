@@ -1,0 +1,83 @@
+#include<iostream.h>
+#include<conio.h>
+#include<fstream.h>
+void main(){
+	char ac[20], mon[10], sn[20];
+	int units;
+	long int cr, pr;
+	float amt;
+	ofstream fout;
+	fout.open("Z:\\Files.TXT");
+	cout<<"\t\t\t ELECTRICITY BILL USING FILES";
+	cout<<"\n\n ENTER AREA CODE: ";
+	cin>>ac;
+	cout<<"\n\n ENTER SERVICE NUMBER: ";
+	cin>>sn;
+	cout<<"\n\n ENTER CURRENT MONTH: ";
+	cin>>mon;
+	cout<<"\n\n ENTER CURRENT READING: ";
+	cin>>cr;
+	cout<<"\n\n ENTER PREVIOUS READING: ";
+	cin>>pr;
+	units = cr - pr;
+	if(units <= 100){
+		if(units >= 1 && units <= 50){
+			amt = units * 0.65;
+		}else{
+			amt = units * 0.75;
+		}
+	}else if(units >= 101 && units <= 600){
+		if(units >= 101 && units <=200){
+			amt = units * 1.50;
+		}else if(units >= 201 && units <= 400){
+			amt = units * 2.25;
+		}else{
+			amt = units * 3.50;
+		}
+
+	}else{
+		amt = units * 6;
+	}
+
+	if(amt <= 40){
+		amt = 40;
+	}
+
+	fout<<"\n\t\t\t    ELECTRICITY BILL USING FILES";
+	fout<<"\n\n\t\t AREA CODE: " << ac;
+	fout<<"\n\n\t\t SERVICE NUMBER: " << sn;
+	fout<<"\n\n\t\t MONTH: " << mon;
+	fout<<"\n\n\t\t CURRENT READING: " << cr;
+	fout<<"\n\n\t\t PREVIOUS READING: " << pr;
+	fout<<"\n--------------------------------------------------";
+	fout.close();
+	fout.open("Z:\\Receipt.TXT");
+	fout<<"\n--------------------------------------------------";
+	fout<<"\n\t\t    TAMILNADU ELECTRICITY BOARD    ";
+	fout<<"\n COIMBATORE REGIONAL OFFICE, COIMBATORE CIRCLE, TAMILNADU";
+	fout<<"\n--------------------------------------------------";
+	fout<<"\n\n AREA CODE: " << ac << "\t\t\t SERVICE NUMBER: " << sn;
+	fout<<"\n\n BILL MONTH: " << mon;
+	fout<<"\n\n CURRENT READING: " << cr << "\t\t PREVIOUS READING: " << pr;
+	fout<<"\n\n UNITS RECORDED: " << units << "\t\t AMOUNT PAYABLE: Rs. " << amt;
+	fout<<"\n\n PAY DATE: 30th, " << mon << "\t\t WITH FINE: 15th Next Month";
+	fout<<"\n--------------------------------------------------";
+	fout.close();
+
+	ifstream fin;
+	fin.open("Z:\\Receipt.TXT");
+	clrscr();
+	cout<<"\n--------------------------------------------------";
+	cout<<"\n TAMILNADU ELECTRICITY BOARD    ";
+	cout<<"\n COIMBATORE REGIONAL OFFICE, COIMBATORE CIRCLE, TAMILNADU";
+	cout<<"\n--------------------------------------------------";
+	cout<<"\n\n AREA CODE: " << ac << "\t\t\t SERVICE NUMBER: " << sn;
+	cout<<"\n\n BILL MONTH: " << mon;
+	cout<<"\n\n CURRENT READING: " << cr << "\t\t PREVIOUS READING: " << pr;
+	cout<<"\n\n UNITS RECORDED: " << units << "\t\t AMOUNT PAYABLE: Rs. " << amt;
+	cout<<"\n\n PAY DATE: 30th, " << mon << "\t\t WITH FINE: 15th Next Month";
+	cout<<"\n\n--------------------------------------------------";
+	fin.close();
+	getch();
+
+}
