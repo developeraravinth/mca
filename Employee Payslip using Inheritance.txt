@@ -1,0 +1,149 @@
+/*EMPLOYEE PAY SLIP BY USING INHERITANCE*/
+
+#include<iostream.h>
+#include<conio.h>
+class employee
+{
+	protected:
+		int eno;
+		char ename[30],dept[30],grade;
+		float bp;
+	public:
+		void getdata();
+		void putdata();
+};
+
+void employee::getdata()
+{
+cout<<"\n-----------------------------------------------";
+cout<<"\t\t DEPT OF CA";
+cout<<"\n\t\t Bharathiar University";
+cout<<"\n\n\t\t\t  EMPLOYEE PAYROLL SYSTEM";
+cout<<"\n-----------------------------------------------";
+
+cout<<"\nEnter Employee No:";
+cin>>eno;
+cout<<"\nEnter Employee Name:";
+cin>>ename;
+cout<<"\nEnter Employee Dept:";
+cin>>dept;
+cout<<"\nEnter Employee Basic Pay:";
+cin>>bp;
+cout<<"\nEnter Employee Grade A or B or C:";
+cin>>grade;
+cout<<"\n-----------------------------------------------";
+}
+void employee::putdata()
+{
+clrscr();
+cout<<"\n----------------------------------------";
+cout<<"\n\t\t DEPT OF CA";
+cout<<"\n\t\t  Bharathiar University";
+cout<<"\n\n\t\t\t\t  PAYSLIP";
+cout<<"\n----------------------------------------";
+cout<<"\n  EMPLOYEE NO:"<<eno;
+cout<<"\t\t\t\tEMPLOYEE NAME:"<<ename;
+cout<<"\n  EMPLOYEE DEPT:"<<dept;
+cout<<"\t\t\t\tEMPLOYEE GRADE:"<<grade;
+cout<<"\n---------------------------------------";
+cout<<"\n\tBASIC PAY:"<<bp<<".00\n";
+}
+class pay:public employee
+{
+	float da,hra,pf,gp,np,ins;
+	public:
+		void call()
+		{
+			if((grade=='A')||(grade=='a'))
+			{
+				da=0.40*bp;
+				hra=0.30*bp;
+				pf=0.20*bp;
+				cout<<"\nALLOWANCE:\n";
+				cout<<"\n\tDAILY ALLOWANCE:"<<da<<".00";
+				cout<<"\n\tHR ALLOWANCE:"<<hra<<".00";
+				cout<<"\n--------------------------------------";
+
+				gp=bp+da+hra;
+				cout<<"\nDEDUCTION:\n";
+				cout<<"\n\tPROVEND FUND:"<<pf<<".00";
+
+				ins=300;
+				cout<<"\n\tINSURANCE: "<<ins<<".00";
+				cout<<"\n--------------------------------------";
+
+				np=gp-pf-ins;
+				cout<<"\n\tNET PAY:"<<np<<".00";
+				cout<<"\n--------------------------------------";
+			}
+			else if((grade=='B')||(grade=='b'))
+			{
+				da=0.35*bp;
+				hra=0.25*bp;
+				pf=0.15*bp;
+				cout<<"\nALLOWANCE:\n";
+				cout<<"\n\tDAILY ALLOWANCE:"<<da<<".00";
+				cout<<"\n\tHR ALLOWANCE:"<<hra<<".00";
+				cout<<"\n--------------------------------------";
+
+				gp=bp+da+hra;
+				cout<<"\nDEDUCTION:\n";
+				cout<<"\n\tPROVEND FUND:"<<pf<<".00";
+
+				ins=250;
+				cout<<"\n\tINSURANCE: "<<ins<<".00";
+				cout<<"\n--------------------------------------";
+
+				np=gp-pf-ins;
+				cout<<"\n\tNET PAY:"<<np<<".00";
+				cout<<"\n--------------------------------------";
+			}
+			else if((grade=='C')||(grade=='c'))
+			{
+				da=0.30*bp;
+				hra=0.20*bp;
+				pf=0.10*bp;
+				cout<<"\nALLOWANCE:\n";
+				cout<<"\n\tDAILY ALLOWANCE:"<<da<<".00";
+				cout<<"\n\tHR ALLOWANCE:"<<hra<<".00";
+				cout<<"\n--------------------------------------";
+				gp=bp+da+hra;
+				cout<<"\nDEDUCTION:\n";
+				cout<<"\n\tPROVEND FUND:"<<pf<<".00";
+				ins=200;
+				cout<<"\n\tINSURANCE: "<<ins<<".00";
+				cout<<"\n--------------------------------------";
+				np=gp-pf-ins;
+				cout<<"\n\tNET PAY:"<<np<<".00";
+				cout<<"\n--------------------------------------";
+			}
+			else
+			{
+			cout<<"\n\n\t\t INVALID GRADE";
+			cout<<"\n--------------------------------------";
+			}
+		}
+};
+void main()
+{
+	int ano=1;
+	clrscr();
+	pay p;
+	do
+	{
+		p.getdata();
+		p.putdata();
+		p.call();
+		cout<<"\n\nTo Continue Press 1 nor 0:";
+		cin>>ano;
+		cout<<"\n------------------------------------------------";
+
+		clrscr();
+
+	} while(ano==1);
+	getch();
+}
+
+
+
+
