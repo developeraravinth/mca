@@ -1,0 +1,70 @@
+#include<iostream.h>
+#include<conio.h>
+class complex
+{
+  private:
+    int real, imag;
+  public:
+    void getdata()
+    {
+    cout<<"\n\n\n ENTER THE REAL NO  :";
+    cin>>real;
+    cout<<"\n\n\n ENTER THE IMAGINARY NO  :";
+    cin>>imag;
+    }
+    void display()
+    {
+       if(imag<0)
+       {
+       cout<<real<<" -"<<imag*(-1)<<"i";
+       }
+       else
+       {
+       cout<<real<<" +"<<imag<<"i";
+       }
+    }
+    complex operator +(complex);
+    complex operator -(complex);
+};
+complex complex::operator +(complex obj)
+{
+   complex temp;
+   temp.real=real+obj.real;
+   temp.imag=imag+obj.imag;
+   return temp;
+}
+complex complex::operator -(complex obj)
+{
+   complex temp;
+   temp.real=real-obj.real;
+   temp.imag=imag-obj.imag;
+   return temp;
+}
+void main()
+{
+   complex obj1, obj2, obj3;
+   clrscr();
+   cout<<"\n-----------------------------------------------------";
+   cout<<"\tADD TWO COMPLEX NUMBERS BY USING OPERATOR OVERLOADING";
+   cout<<"\n-----------------------------------------------------";
+       cout<<"\n\n\t\t ENTER INPUT FOR OBJECT 1.";
+       obj1.getdata();
+       cout<<"\n\n\t\t ENTER INPUT FOR OBJECT 2.";
+       obj2.getdata();
+
+       cout<<"\n\n\n THE FIRST COMPLEX NO           :";
+       obj1.display();
+       cout<<"\n\n\n THE SECOND COMPLEX NO          :";
+       obj2.display();
+
+   cout<<"\n\n\n THE ADDITION OF TWO COMPLEX NO  :";
+   obj3=obj1+obj2;
+   obj3.display();
+
+   cout<<"\n\n\n THE SUBTRACTION OF TWO COMPLEX NO:";
+   obj3=obj1-obj2;
+   obj3.display();
+
+   cout<<"\n------------------------------------------------";
+   getch();
+}
