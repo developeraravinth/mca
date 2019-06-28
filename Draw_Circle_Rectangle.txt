@@ -1,0 +1,27 @@
+/*** Write a Java program to draw a Circle and Rectangle ***/
+import java.awt.*;
+import javax.swing.*;
+
+public class Draw_Circle_Rectangle extends JPanel{
+
+	public void paintComponent(Graphics g){
+	g.drawOval(20, 30, 75, 100);
+	g.fillRect(150, 80, 150, 100);
+	g.setColor(Color.red);
+	}
+
+	public static void main(String[] args){
+	JFrame.setDefaultLookAndFeelDecorated(true);
+	JFrame frame = new JFrame("Oval and Rectangle");
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setBackground(Color.red);
+	frame.setSize(800,400);
+	
+	Draw_Circle_Rectangle panel = new Draw_Circle_Rectangle ();
+	frame.add(panel);
+	frame.setVisible(true);
+	}
+
+
+
+}
