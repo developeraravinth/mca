@@ -1,0 +1,66 @@
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+#include<ctype.h>
+class STRING{
+char arr[30];
+	public:
+	void getdata();
+	void putdata();
+	STRING operator + (STRING);
+	int operator ==(STRING);
+	void length();
+};
+void STRING::getdata(){
+cout<< "\n\nEnter any String:";
+cin>> arr;
+}
+void STRING::putdata(){
+cout<<arr;
+}
+
+STRING STRING::operator +(STRING s){
+STRING temp;
+strcpy(temp.arr, arr);
+strcat(temp.arr, s.arr);
+return temp;
+}
+
+int STRING::operator ==(STRING s){
+if(strcmp(arr, s.arr) == 0)
+return 1;
+else
+return 0;
+}
+
+void STRING::length(){
+cout<<strlen(arr);
+}
+
+void main(){
+STRING s1, s2, s3;
+s1.getdata();
+s2.getdata();
+cout<<"\n\n First String: ";
+s1.putdata();
+cout<<"\n\n Second String: ";
+s2.putdata();
+cout<<"\n\n\n\t\t THE CONCATINATED STRING";
+cout<<"\n\n\n String is: ";
+s3 = s1 + s2;
+s3.putdata();
+cout<<"\n\n\n\t\t THE COMPARISON OF 2 STRINGS";
+if(s1 == s2)
+	cout<<"\n\n\nGiven Strings are EQUAL"<<endl;
+else
+	cout<<"\n\n\nGiven String aren't EQUAL"<<endl;
+cout<<"\n\n\n\t\t THE LENGTH OF STRINGS";
+	cout<<"\n\n\nFirst String Length:";
+	s1.length;
+	cout<<"\n\n\nSecond String Length:";
+	s2.length;
+	cout<<"\n\n\nConcatinated String Length:";
+	s3.length;
+	cout<<"\n-------------------------------------";
+	getch();
+}
